@@ -16,6 +16,7 @@ if not os.path.exists(CSV_FILE):
 
 @app.route('/')
 def index():
+    # Serve the HTML file
     return send_from_directory('.', 'index.html')
 
 
@@ -26,7 +27,7 @@ def location():
     longitude = data.get('longitude')
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    print(f"Received: {latitude}, {longitude}")
+    print(f"📍 Received coordinates: {latitude}, {longitude}")
 
     if latitude and longitude:
         with open(CSV_FILE, 'a', newline='') as file:
@@ -37,4 +38,6 @@ def location():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use Railway's PORT environment variable
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
