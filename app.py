@@ -7,16 +7,15 @@ app = Flask(__name__, static_folder='.')
 
 CSV_FILE = 'gps_data.csv'
 
-# Create CSV file with headers if not exists
+# Create CSV file if it doesn't exist
 if not os.path.exists(CSV_FILE):
-    with open(CSV_FILE, 'w', newline='') as file:
-        writer = csv.writer(file)
+    with open(CSV_FILE, 'w', newline='') as f:
+        writer = csv.writer(f)
         writer.writerow(['timestamp', 'latitude', 'longitude'])
 
 
 @app.route('/')
 def index():
-    # Serve the HTML file
     return send_from_directory('.', 'index.html')
 
 
@@ -27,17 +26,17 @@ def location():
     longitude = data.get('longitude')
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    print(f"📍 Received coordinates: {latitude}, {longitude}")
+    print(f"📍 Received: {latitude}, {longitude}")
 
     if latitude and longitude:
-        with open(CSV_FILE, 'a', newline='') as file:
-            writer = csv.writer(file)
+        with open(CSV_FILE, 'a', newline='') as f:
+            writer = csv.writer(f)
             writer.writerow([timestamp, latitude, longitude])
 
     return {'status': 'success'}
 
 
 if __name__ == '__main__':
-    # Use Railway's PORT environment variable
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    # Railway automatically sets a PORT variable
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port, debug=False)
