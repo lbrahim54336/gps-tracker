@@ -36,6 +36,24 @@ def location():
     return {'status': 'success'}
 
 
+# NEW: Download CSV file
+@app.route('/download')
+def download():
+    if os.path.exists(CSV_FILE):
+        return send_from_directory('.', 'gps_data.csv', as_attachment=True)
+    return 'No data yet', 404
+
+
+# NEW: View data in browser
+@app.route('/view-data')
+def view_data():
+    if os.path.exists(CSV_FILE):
+        with open(CSV_FILE, 'r') as f:
+            data = f.read()
+            return f'<pre>{data}</pre>'
+    return 'No data yet', 404
+
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port, debug=False)
