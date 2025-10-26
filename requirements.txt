@@ -1,2 +1,13 @@
-pandas
 Flask==3.0.0
+pandas
+gunicorn
+```
+
+And either create a `Procfile`:
+```
+web: gunicorn app:app
+```
+
+Or set the start command in Railway settings to:
+```
+gunicorn app:app --bind 0.0.0.0:$PORT
